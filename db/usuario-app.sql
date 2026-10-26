@@ -1,3 +1,3 @@
-CREATE USER IF NOT EXISTS 'gestion_app'@'%' IDENTIFIED BY 'dev-gestion-2026';
-GRANT SELECT, INSERT, UPDATE, DELETE ON gestion.* TO 'gestion_app'@'%';
-FLUSH PRIVILEGES;
+mysql -uroot -p"$MYSQL_ROOT_PASSWORD" -e "
+  CREATE USER 'gestion_app'@'%' IDENTIFIED BY '$APP_DB_PASSWORD';
+  GRANT SELECT, INSERT, UPDATE, DELETE ON gestion.* TO 'gestion_app'@'%';"
